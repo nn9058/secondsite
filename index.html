@@ -6,25 +6,28 @@
     <title>我的快捷导航</title>
     <style>
         body {
-            font-family: -apple-system, sans-serif;
+            font-family: -apple-system, system-ui, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* 使用 min-height 以适应更多内容 */
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .container {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            width: 90%;
-            max-width: 400px;
+            width: 100%;
+            max-width: 450px; /* 略微调宽以适应更多按钮 */
         }
         .btn {
             display: flex;
@@ -38,26 +41,47 @@
             font-weight: bold;
             transition: transform 0.2s, background 0.2s;
             text-align: center;
+            font-size: 14px;
         }
         .btn:hover {
             transform: translateY(-3px);
             background: #f0f0f0;
         }
+        /* 预留按钮样式 */
+        .btn-empty {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+        }
         /* 响应式：小屏幕单列显示 */
-        @media (max-width: 350px) {
-            .container { grid-template-columns: 1fr; }
+        @media (max-width: 400px) {
+            .container { 
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- 原始按钮 -->
     <a href="https://github.com" target="_blank" class="btn">GitHub</a>
     <a href="https://www.cloudflare.com" target="_blank" class="btn">Cloudflare</a>
     <a href="https://www.youtube.com" target="_blank" class="btn">YouTube</a>
     <a href="https://x.com" target="_blank" class="btn">X.com</a>
     <a href="https://www.tailscale.com" target="_blank" class="btn">Tailscale</a>
     <a href="https://www.google.com" target="_blank" class="btn">Google</a>
+
+    <!-- 新增按钮 -->
+    <a href="https://nn.cliffzh.qzz.io/login" target="_blank" class="btn">自制节点</a>
+    <a href="https://src.cliffzh.cc.cd" target="_blank" class="btn">自制源</a>
+    <a href="http://www.airdroid.cn" target="_blank" class="btn">AirDroid</a>
+    <a href="http://zh.z-library.se" target="_blank" class="btn">Z-library</a>
+    
+    <!-- 预留按钮 -->
+    <a href="#" class="btn btn-empty">待定</a>
+    <a href="#" class="btn btn-empty">待定</a>
 </div>
 
 </body>
